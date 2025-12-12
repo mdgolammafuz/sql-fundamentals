@@ -17,3 +17,9 @@ SELECT * FROM logins;
 -- 2. Your Solution (Write below this line)
 -- Hint: Use DATE_TRUNC('month', login_at) and COUNT(DISTINCT user_id)
 
+SELECT 
+    DATE_TRUNC('month', login_at) AS month,
+    COUNT(DISTINCT user_id) AS mau
+FROM logins
+GROUP BY DATE_TRUNC('month', login_at)
+ORDER BY month;
